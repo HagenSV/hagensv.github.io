@@ -1,0 +1,20 @@
+.btn.green {
+    color: white;
+    background-color: darkgreen;
+}
+
+.btn.green:hover {
+    background-color: green;
+    color: gainsboro
+}
+
+#nav {
+    padding-bottom: 50px
+}
+
+.btn.selected {
+    text-decoration: underline;
+    text-decoration-color: green;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
