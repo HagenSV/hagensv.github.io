@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const programmingLanguages = ["Java","JavaScript","HTML/CSS","Scala","Swift","Python","C"];
-const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Mathematica","Java Swing","Discord.js","Flask","Socketio","Bootstrap","React"];
+const programmingLanguages = ["Java","JavaScript/TypeScript","HTML/CSS","Scala","Swift","Python","C"];
+const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Mathematica","Java Swing","Discord.js","Flask","Socketio","Bootstrap","React","XCode"];
 const otherSkills = ["Problem Solving", "Agile", "Scrum"]
 
 const toolStart = programmingLanguages.length*0.1+0.5
