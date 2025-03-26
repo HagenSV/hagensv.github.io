@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+//import './App.css';
+import Education from './pages/Education';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -10,21 +10,8 @@ function App() {
         <h1>Samuel V. Hagen</h1>
         <p>Full Stack Developer • Software Engineer</p>
       </header>
-      < Navbar />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Education />
       <Footer />
     </div>
   );
