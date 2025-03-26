@@ -36,7 +36,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ href, className, text }) => {
 
 const Navbar: React.FC = () => {
     return (
-        <Container>
+        <Container className="text-center">
         <Row className="row justify-content-center gy-3" id="nav">
             <NavbarItem href="/" className="selected" text="Education" />
             <NavbarItem href="/skills" className="" text="Skills" />
