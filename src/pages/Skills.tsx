@@ -3,6 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const programmingLanguages = ["Java","JavaScript","HTML/CSS","Scala","Swift","Python","C"];
 const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Mathematica","Java Swing","Discord.js","Flask","Socketio","Bootstrap","React"];
+const otherSkills = ["Problem Solving", "Agile", "Scrum"]
+
+const toolStart = programmingLanguages.length*0.1+0.5
+const otherStart = (programmingLanguages.length+toolsPlatforms.length)*0.1+1.0
+
 
 const SkillsPage: React.FC = () => {
     return (
@@ -12,19 +17,29 @@ const SkillsPage: React.FC = () => {
             <Container className="text-center">
                 <Row>
                     {programmingLanguages.map((language, index) => (
-                        <div className="col-6 col-md-3 fade-in" style={{ animationDelay: `${index * 0.1}s` }} key={language}>
+                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${index * 0.1}s` }} key={language}>
                             <p>{language}</p>
-                        </div>
+                        </Col>
                     ))}
                 </Row>
             </Container>
-            <p className="bold fade-in" style={{ animationDelay: "1.1s" }}>Tools/Platforms:</p>
+            <p className="bold fade-in" style={{ animationDelay: `${toolStart}s` }}>Tools/Platforms:</p>
             <Container className="text-center">
                 <Row>
                 {toolsPlatforms.map((tool, index) => (
-                        <div className="col-6 col-md-3 fade-in" style={{ animationDelay: `${1.2 + index * 0.1}s` }} key={tool}>
+                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${toolStart + (index+1) * 0.1}s` }} key={tool}>
                             <p>{tool}</p>
-                        </div>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+            <p className="bold fade-in" style={{ animationDelay: `${otherStart}s` }}>Other Skills:</p>
+            <Container className="text-center">
+                <Row>
+                {otherSkills.map((tool, index) => (
+                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${otherStart + (index+1) * 0.1}s` }} key={tool}>
+                            <p>{tool}</p>
+                        </Col>
                     ))}
                 </Row>
             </Container>
