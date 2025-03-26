@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const programmingLanguages = ["Java","JavaScript/TypeScript","HTML/CSS","Scala","Swift","Python","C"];
+const programmingLanguages = ["Java","JavaScript","Typescript","HTML/CSS","Scala","Swift","Python","C"];
 const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Mathematica","Java Swing","Discord.js","Flask","Socketio","Bootstrap","React","XCode"];
 const otherSkills = ["Problem Solving", "Agile", "Scrum"]
 
@@ -17,7 +17,7 @@ const SkillsPage: React.FC = () => {
             <Container className="text-center">
                 <Row>
                     {programmingLanguages.map((language, index) => (
-                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${index * 0.1}s` }} key={language}>
+                        <Col xs={6} sm={4} md={3} className="fade-in" style={{ animationDelay: `${index * 0.1}s` }} key={language}>
                             <p>{language}</p>
                         </Col>
                     ))}
@@ -27,7 +27,7 @@ const SkillsPage: React.FC = () => {
             <Container className="text-center">
                 <Row>
                 {toolsPlatforms.map((tool, index) => (
-                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${toolStart + (index+1) * 0.1}s` }} key={tool}>
+                        <Col xs={6} sm={4} md={3} className="fade-in" style={{ animationDelay: `${toolStart + (index+1) * 0.1}s` }} key={tool}>
                             <p>{tool}</p>
                         </Col>
                     ))}
@@ -37,7 +37,7 @@ const SkillsPage: React.FC = () => {
             <Container className="text-center">
                 <Row>
                 {otherSkills.map((tool, index) => (
-                        <Col xs={6} md={3} className="fade-in" style={{ animationDelay: `${otherStart + (index+1) * 0.1}s` }} key={tool}>
+                        <Col xs={6} sm={4} md={3} className="fade-in" style={{ animationDelay: `${otherStart + (index+1) * 0.1}s` }} key={tool}>
                             <p>{tool}</p>
                         </Col>
                     ))}
