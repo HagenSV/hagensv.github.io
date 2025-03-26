@@ -29,7 +29,7 @@ header {
 }
 
 main {
-  padding: 10px 15%;
+  padding: 10px 5%;
 }
 
 code {
@@ -109,5 +109,15 @@ code {
 @media screen and (min-width: 768px) {
   .mobile-hidden {
       display: block;
+  }
+
+  main {
+    padding: 10px 10%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    padding: 10px 15%;
   }
 }
