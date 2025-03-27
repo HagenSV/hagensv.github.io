@@ -13,7 +13,12 @@
 }
 
 #nav {
-    padding-bottom: 50px
+    width: 100%;
+    background-color: var(--bs-body-bg);
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
 }
 
 .btn.selected {
