@@ -29,7 +29,7 @@ header {
 }
 
 main {
-  padding: 10px 5%;
+  padding: 10px 5% 50px 5%;
 }
 
 code {
@@ -112,12 +112,20 @@ code {
   }
 
   main {
-    padding: 10px 10%;
+    padding: 10px 10% 50px 10%;
   }
 }
 
 @media screen and (min-width: 992px) {
   main {
-    padding: 10px 15%;
+    padding: 10px 15% 50px 15%;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  header > h1 {
+    font-size: 4rem;
   }
 }
