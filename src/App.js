@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Education from './pages/Education';
 import SkillsPage from './pages/Skills';
 import Projects from './pages/Projects';
+import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 function App() {
@@ -14,8 +15,7 @@ function App() {
             <Route index element={<Education />} />
             <Route path="skills" element={<SkillsPage />} />
             <Route path="projects" element={<Projects />} />
-            {/* <Route path="contact" element={<Contact />} />
-            <Route path="*" element={<NoPage />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
