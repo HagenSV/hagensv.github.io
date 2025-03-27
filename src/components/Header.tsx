@@ -16,7 +16,7 @@
  */
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import './Navbar.css'; // Assuming you have a CSS file for custom styles
+import './Header.css'; // Assuming you have a CSS file for custom styles
 
 interface NavbarItemProps {
     href: string;
@@ -44,11 +44,11 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ href, selected, text }) => {
     )
 }
 
-interface NavbarProps {
+interface HeaderProps {
     selected: number;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ selected = 1 }) => {
+const Header: React.FC<HeaderProps> = ({ selected = 1 }) => {
     return (
         <>
         <header className="text-center">
@@ -69,4 +69,4 @@ const Navbar: React.FC<NavbarProps> = ({ selected = 1 }) => {
     )
 }
 
-export default Navbar;
+export default Header;

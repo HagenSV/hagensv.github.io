@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 const programmingLanguages = ["Java","JavaScript","Typescript","HTML/CSS","Scala","Swift","Python","C"];
 const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Mathematica","Java Swing","Discord.js","Flask","Socketio","Bootstrap","React","XCode"];
@@ -13,7 +13,7 @@ const otherStart = (programmingLanguages.length+toolsPlatforms.length)*0.1+1.0
 const SkillsPage: React.FC = () => {
     return (
         <>
-        < Navbar selected={2} />
+        < Header selected={2} />
         <main>
             <h1 className="type-cursor">Skills</h1>
             <p className="bold fade-in">Programming Languages:</p>

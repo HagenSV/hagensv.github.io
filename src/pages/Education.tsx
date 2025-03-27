@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 const courses = ["Java 1 and 2","Data Structures","Parallel Computing","Data Communication","Theory of Algorithms","Web Programming","iOS Development","Software Engineering"];
 
 const Education: React.FC = () => {
     return (
         <>
-        < Navbar selected={1} />
+        < Header selected={1} />
         <main>
             <h1 className="type-cursor">Education</h1>
             <h3 className="subheading fade-in">Grove City College</h3>
