@@ -20,28 +20,42 @@ import './Navbar.css'; // Assuming you have a CSS file for custom styles
 
 interface NavbarItemProps {
     href: string;
-    className: string;
+    selected: boolean;
     text: string;
 }
 
-const NavbarItem: React.FC<NavbarItemProps> = ({ href, className, text }) => {
+const ContactBtn: React.FC = () => {
     return (
         <Col xs={6} md={3}>
-            <a href={href} className={`btn ${className}`}>
+            <a href="mailto:svhagen594+careers@gmail.com" className="btn green">
+                Contact
+            </a>
+        </Col>
+    )
+}
+
+const NavbarItem: React.FC<NavbarItemProps> = ({ href, selected, text }) => {
+    return (
+        <Col xs={6} md={3}>
+            <a href={href} className={`btn ${selected ? "selected" : ""}`}>
                 {text}
             </a>
         </Col>
     )
 }
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+    selected: number;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ selected = 1 }) => {
     return (
         <Container className="text-center">
         <Row className="row justify-content-center gy-3" id="nav">
-            <NavbarItem href="/" className="selected" text="Education" />
-            <NavbarItem href="/skills" className="" text="Skills" />
-            <NavbarItem href="/projects" className="" text="Projects" />
-            <NavbarItem href="mailto:svhagen594+careers@gmail.com" className="green" text="Contact" />
+            <NavbarItem href="/" selected={selected == 1} text="Education" />
+            <NavbarItem href="/skills" selected={selected == 2} text="Skills" />
+            <NavbarItem href="/projects" selected={selected == 3} text="Projects" />
+            <ContactBtn />
         </Row>
         </Container>
     )
