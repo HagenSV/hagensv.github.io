@@ -2,7 +2,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Education from './pages/Education';
 import SkillsPage from './pages/Skills';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 function App() {
