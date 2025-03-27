@@ -50,14 +50,22 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ selected = 1 }) => {
     return (
+        <>
+        <header className="text-center">
+            <h1>Samuel V. Hagen</h1>
+            <p>Full Stack Developer • Software Engineer</p>
+        </header>
+        <div id="nav">
         <Container className="text-center">
-        <Row className="row justify-content-center gy-3" id="nav">
-            <NavbarItem href="/" selected={selected == 1} text="Education" />
-            <NavbarItem href="/skills" selected={selected == 2} text="Skills" />
-            <NavbarItem href="/projects" selected={selected == 3} text="Projects" />
+        <Row className="justify-content-center gy-3">
+            <NavbarItem href="/" selected={selected === 1} text="Education" />
+            <NavbarItem href="/skills" selected={selected === 2} text="Skills" />
+            <NavbarItem href="/projects" selected={selected === 3} text="Projects" />
             <ContactBtn />
         </Row>
         </Container>
+        </div>
+        </>
     )
 }
 
