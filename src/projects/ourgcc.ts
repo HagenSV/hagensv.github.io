@@ -1,4 +1,4 @@
-import { ProjectData } from "../app/pages/ProjectDetails";
+import { ProjectData } from "../types/ProjectData";
 
 const ourGcc: ProjectData = {
     title: "OurGCC",
