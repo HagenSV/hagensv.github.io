@@ -1,21 +1,24 @@
 import React from "react";
 import Header from "../components/Header";
 
+
+let animationDelay = 0;
 const projectData = (title: string, year: number, type: string, tools: Array<string>, accomplishments: Array<string>, pageLink: boolean = false ) => {
+    animationDelay += 1;
     return {
         title: title,
         year: year,
         type: type,
         tools: tools,
         accomplishments: accomplishments,
-        animationDelay: 1,
+        animationDelay: animationDelay,
         pageLink: pageLink ? `/projects/${title.toLowerCase().replace(" ","-")}` : null
     }
 }
 
 const projects = [
     projectData(
-        "Student Schedule", 2025, "Class, Group",
+        "Student Scheduler", 2025, "Class, Group",
         ["Java","Git","Github","React","Typescript","HTML/CSS"],
         ["Team lead, responsible for assignment submissions","Created github repository and configured branch rules","Used React and Typescript to create a responsive web app","Used Java and Spring Boot for the backend","Used Github for version control and collaboration"],
     ),
@@ -40,7 +43,7 @@ const projects = [
         ["Created github repository","Primary developer for game logic","Taught myself java swing library","Created a custom game engine"]
     )
 ];
-interface ProjectProps {
+interface ProjectSummaryProps {
     title: string;
     year: number;
     type: string;
@@ -50,7 +53,7 @@ interface ProjectProps {
     pageLink?: string | null;
 }
 
-const Project: React.FC<ProjectProps> = ({ title, year, type, tools, accomplishments, animationDelay, pageLink }) => {
+const ProjectSummary: React.FC<ProjectSummaryProps> = ({ title, year, type, tools, accomplishments, animationDelay, pageLink }) => {
     return (
         <div className="project fade-in" style={{ animationDelay: `${animationDelay}s` }}>
         <h2 className="subheading">{ title } ({ year })</h2>
@@ -59,7 +62,7 @@ const Project: React.FC<ProjectProps> = ({ title, year, type, tools, accomplishm
         <p><span className="bold">Accomplishments: </span></p>
         <ul>
             {accomplishments.map((accomplishment, index) => (
-                <li className="fade-in" style={{ animationDelay: `${animationDelay + index * 0.1}s` }} key={accomplishment}>{ accomplishment }</li>)
+                <li className="fade-in" style={{ animationDelay: `${animationDelay + (index+1) * 0.1}s` }} key={accomplishment}>{ accomplishment }</li>)
             )}
         </ul>
         {/* <p><span className="bold">Purpose: </span>Final project for AP computer science A.</p> */}
@@ -75,7 +78,7 @@ const Projects: React.FC = () => {
         <main>
         <h1 className="type-cursor">Projects</h1>
         { projects.map((project, index) => (
-            <Project
+            <ProjectSummary
                 key={index}
                 title={project.title}
                 year={project.year}
