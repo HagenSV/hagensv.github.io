@@ -1,5 +1,10 @@
 footer {
     padding: 10px;
-    font-size: 1.25rem;
     background: var(--footer-background);
+}
+
+@media screen and (min-width: 992px) {
+    footer {
+        font-size: 1rem;
+    }
 }
