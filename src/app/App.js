@@ -8,6 +8,10 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import projects from '../projects/index';
 
+function toRoute(project){
+  return project.title.toLowerCase().replace(/\s+/g, "-");
+}
+
 function App() {
   return (
     <div className="App">
@@ -18,8 +22,8 @@ function App() {
             <Route path="skills" element={<SkillsPage />} />
             <Route path="projects">
               <Route index element={<Projects />} />
-              {Object.keys(projects).map((key) => (
-                <Route path={key} element={<ProjectDetails project={projects[key]} />} />
+              {projects.map((project) => (
+                <Route path={toRoute(project)} element={<ProjectDetails project={project} />} />
               ))}
             </Route>
             <Route path="*" element={<NotFound />} />
