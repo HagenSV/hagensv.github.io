@@ -3,12 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 
 const programmingLanguages = ["Java","JavaScript","Typescript","HTML/CSS","Scala","Swift","Python","C"];
-const toolsPlatforms = ["Linux/Bash","Git/Github","Junit","Java Swing","Flask","Socketio","Bootstrap","React","Electron","Jira","XCode","Mathematica","Discord.js"];
-const otherSkills = ["Problem Solving", "Agile", "Scrum"]
+const toolsPlatforms = ["Junit","Git/Github","Figma","Linux/Bash","Socketio","Bootstrap","React","Electron","Java Swing","Flask","MS Office Suite","Jira","XCode","Mathematica","Discord.js"];
+const otherSkills = ["Problem Solving","Agile","Scrum","Prompt Engineering","Communication","Teamwork","Customer Service"];
 
 const toolStart = programmingLanguages.length*0.1+0.5
 const otherStart = (programmingLanguages.length+toolsPlatforms.length)*0.1+1.0
-
 
 const SkillsPage: React.FC = () => {
     return (
