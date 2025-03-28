@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 
-interface ProjectDetailsProps {
+interface ProjectData {
     title: string;
     year: number;
     type: string;
@@ -12,25 +12,29 @@ interface ProjectDetailsProps {
     youtubeLink: string | null; // Optional link to a YouTube video for the project
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ title, year, type, tools, accomplishments, about, images, youtubeLink = null}) => {
+interface Project {
+    project: ProjectData
+}
+
+const ProjectDetails: React.FC<Project> = ({ project }) => {
     return (
         <>
             < Header selected={3} />
             <main>
-            <h1 className="type-cursor">{ title } ({ year })</h1>
-            <p><span className="bold">Project Type: </span>{ type }</p>
-            <p><span className="bold">Languages/Tools: </span>{ tools.join(", ") }</p>
+            <h1 className="type-cursor">{ project.title } ({ project.year })</h1>
+            <p><span className="bold">Project Type: </span>{ project.type }</p>
+            <p><span className="bold">Languages/Tools: </span>{ project.tools.join(", ") }</p>
             <p><span className="bold">Accomplishments: </span></p>
             <ul>
-                {accomplishments.map((accomplishment, index) => (
+                {project.accomplishments.map((accomplishment, index) => (
                     <li className="fade-in" style={{ animationDelay: `${ (index+1) * 0.1}s` }} key={accomplishment}>{ accomplishment }</li>)
                 )}
             </ul>
-            <p><span className="bold">About: </span>{about}</p>
-            { images && (
+            <p><span className="bold">About: </span>{project.about}</p>
+            { project.images && (
                 <>
                 <p><span className="bold">Gallery: </span></p>
-                {images.map((image, index) => (
+                {project.images.map((image, index) => (
                     <div key={index} style={{ margin: "10px 0", textAlign: "center" }}>
                         <img src={image} alt={`Project screenshot ${index + 1}`} style={{ maxWidth: "100%", maxHeight: "400px", borderRadius: "8px" }} />
                     </div>
@@ -38,7 +42,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ title, year, type, tool
                 </>
             )}
 
-            { youtubeLink && (
+            { project.youtubeLink && (
             <>
             <p><span className="bold">Demo: </span></p>
             <div style={{ textAlign: "center" }}>
@@ -50,3 +54,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ title, year, type, tool
         </>
     )
 }
+
+export { ProjectDetails };
+export type { ProjectData };
