@@ -46,7 +46,7 @@ const ProjectDetails: React.FC<Project> = ({ project }) => {
             <>
             <p><span className="bold">Demo: </span></p>
             <div style={{ textAlign: "center" }}>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/KxdFo6cqBT4?si=xfvHM9eN7da0CEHD" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <iframe width="560" height="315" src={ project.youtubeLink } title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div> 
             </>
             )}           
