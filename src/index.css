@@ -1,0 +1,134 @@
+[data-bs-theme="dark"] {
+  --cursor-color: white;
+  --subheading-color: #bfbfbf;
+  --highlight-color: rgb(181, 173, 73);
+  --footer-background: #1b1f22;
+}
+
+[data-bs-theme="light"] {
+  --cursor-color: black;
+  --subheading-color: #7f7f7f;
+  --highlight-color: rgb(180, 169, 50);
+  --footer-background: #f2f2f2;
+}
+
+body {
+  font-family: monospace;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  padding: 25px;
+}
+
+main {
+  padding: 10px 5% 50px 5%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.heading {
+  width: fit-content;
+}
+
+.project {
+  padding: 20px 0;
+}
+
+.mobile-hidden {
+  display: none;
+}
+
+.type-cursor {
+  width: fit-content;
+  border-right: 0.1em solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+      blink-cursor 1s step-end infinite;
+}
+
+.subheading {
+  color: var(--subheading-color)
+}
+
+.bold {
+  font-weight: bolder;
+  color: var(--highlight-color)
+}
+
+.fade-in {
+  animation:
+          fade-in 0.65s linear,
+          slide-up 0.65s linear;
+      animation-fill-mode: backwards;
+}
+
+*:hover > .arrow-animate {
+  animation: arrow-animate 1s linear infinite;
+}
+
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: var(--cursor-color); }
+}
+
+@keyframes arrow-animate {
+  from, to { padding-left: 0; }
+  50% { padding-left: 5px }
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+      transform: translateY(10px);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-hidden {
+      display: block;
+  }
+
+  main {
+    padding: 10px 10% 50px 10%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    --bs-body-font-size: 1.25rem;
+  }
+
+  main {
+    padding: 10px 15% 50px 15%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  header > h1 {
+    font-size: 2.5rem;
+  }
+}

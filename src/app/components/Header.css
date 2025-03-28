@@ -1,0 +1,31 @@
+.btn.green {
+    color: white;
+    background-color: darkgreen;
+}
+
+.btn.green:hover {
+    background-color: green;
+    color: gainsboro
+}
+
+#nav {
+    width: 100%;
+    background-color: var(--bs-body-bg);
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
+}
+
+.btn.selected {
+    text-decoration: underline;
+    text-decoration-color: green;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+@media screen and (min-width: 992px) {
+    .btn {
+        --bs-btn-font-size: 1rem;
+    }
+}
