@@ -22,7 +22,7 @@ function App() {
             <Route path="skills" element={<SkillsPage />} />
             <Route path="projects">
               <Route index element={<Projects />} />
-              {projects.map((project) => (
+              {projects.map((project) => ( project.about !== "" &&
                 <Route path={toRoute(project)} element={<ProjectDetails project={project} />} />
               ))}
             </Route>
