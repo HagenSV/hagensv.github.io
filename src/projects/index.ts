@@ -4,6 +4,6 @@ import portfolioWebsite from "./portfolio_website";
 import studentScheduler from "./student_scheduler";
 import spaceMiner from "./space_miner";
 
-const projects = [studentScheduler, portfolioWebsite, ourGcc, boxedUp, spaceMiner]
+const projects = [portfolioWebsite, studentScheduler, ourGcc, boxedUp, spaceMiner]
 
 export default projects
