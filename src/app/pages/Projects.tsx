@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { ProjectData } from "../../types/ProjectData";
 import projects from "../../projects";
 
-let animationDelay = 0;
 
 const toSummary = (project: ProjectData) => {
-    animationDelay += 1;
     return {
         title: project.title,
         year: project.year,
         type: project.type,
         tools: project.tools,
         accomplishments: project.accomplishments,
-        animationDelay: animationDelay,
+        animationDelay: 0,
         pageLink: project.about === "" ? null : `/projects/${project.title.toLowerCase().replace(" ","-")}`
     }
 }
 
-const projectSummaries = projects.map((project) => toSummary(project)) // Convert each project to a summary format
 interface ProjectSummaryProps {
     title: string;
     year: number;
@@ -38,7 +35,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({ title, year, type, tool
         <p><span className="bold">Accomplishments: </span></p>
         <ul>
             {accomplishments.map((accomplishment, index) => (
-                <li className="fade-in" style={{ animationDelay: `${animationDelay + (index+1) * 0.1}s` }} key={accomplishment}>{ accomplishment }</li>)
+                <li className="fade-in" style={{ animationDelay: `${animationDelay + (index+1) * 0.1}s` }} key={index}>{ accomplishment }</li>)
             )}
         </ul>
         {/* <p><span className="bold">Purpose: </span>Final project for AP computer science A.</p> */}
@@ -47,13 +44,46 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = ({ title, year, type, tool
     );
 }
 
+const projectSummaries = projects.map((project) => toSummary(project)) // Convert each project to a summary format
+
 const Projects: React.FC = () => {
+
+    const sortTypes = ["Default", "Newest First", "Oldest First"]; // Define the sort types, currently only one type for ascending order
+
+    const [orderedProjects, setProjects] = useState<ProjectSummaryProps[]>(projectSummaries);
+    const [sortType, setSortType] = useState<number>(0); // State to track the current sort type
+
+    function handleClick() {
+
+        const nextSort = (sortType + 1) % sortTypes.length; // Calculate the next sort type based on the current one, cycling through the available options
+
+        setSortType(nextSort); // Cycle through the sort types'
+
+        if (nextSort === 0) {
+            // Default order (no sorting)
+            setProjects(projects.map((project) => toSummary(project))); // Set to original order
+            return;
+        }
+        
+        const sortedProjects = [...orderedProjects].sort((a, b) => {
+            // Sort projects by year descending, if years are equal sort by title alphabetically
+            if (a.year === b.year) {
+                return a.title.localeCompare(b.title);
+            }
+            return nextSort === 1 ? b.year - a.year : a.year - b.year; // For "Newest First", sort by year descending, for "Oldest First", sort by year ascending
+        }); // This will sort the projects by year descending and then by title alphabetically if years are equal
+        setProjects(sortedProjects); // Trigger a re-render to show the sorted projects. This is a workaround to ensure the state updates and reflects the sorted order.
+    }
+
     return (
         <>
         < Header selected={3} />
         <main>
         <h1 className="type-cursor">Projects</h1>
-        { projectSummaries.map((project, index) => (
+        <button onClick={handleClick} className="btn sort-btn" style={{ marginBottom: "20px", padding: "10px 20px", fontSize: "16px" }}>
+            Sort: {sortTypes[sortType]}
+        </button>
+        { orderedProjects.map((project,index) => (
             <ProjectSummary
                 key={index}
                 title={project.title}
@@ -61,7 +91,7 @@ const Projects: React.FC = () => {
                 type={project.type}
                 tools={project.tools}
                 accomplishments={project.accomplishments}
-                animationDelay={project.animationDelay}
+                animationDelay={index+1}
                 pageLink={project.pageLink}
             />
         )) }
