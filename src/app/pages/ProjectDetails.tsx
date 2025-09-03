@@ -11,6 +11,7 @@ const ProjectDetails: React.FC<Project> = ({ project }) => {
         <>
             < Header selected={3} />
             <main>
+            <a className="subheading btn" href="/projects">{"< Back "}</a>
             <h1 className="type-cursor">{ project.title } ({ project.year })</h1>
             <p><span className="bold">Project Type: </span>{ project.type }</p>
             <p><span className="bold">Languages/Tools: </span>{ project.tools.join(", ") }</p>
