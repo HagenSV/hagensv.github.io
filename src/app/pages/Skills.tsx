@@ -2,9 +2,9 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
 
-const programmingLanguages = ["Java","JavaScript","Typescript","HTML/CSS","Scala","Swift","Python","C"];
+const programmingLanguages = ["Java","Typescript","Javascript","HTML/CSS","Python","Kotlin","Scala","Swift","C"];
 const toolsPlatforms = ["Junit","Git/Github","Figma","Linux/Bash","Socketio","Bootstrap","React","Electron","Java Swing","Flask","MS Office Suite","Jira","XCode","Mathematica","Discord.js"];
-const otherSkills = ["Problem Solving","Agile","Scrum","Prompt Engineering","Communication","Teamwork","Customer Service"];
+const otherSkills = ["Problem Solving","Agile","Scrum","QA Testing","Prompt Engineering","Communication","Teamwork","Customer Service"];
 
 const toolStart = programmingLanguages.length*0.1+0.5
 const otherStart = (programmingLanguages.length+toolsPlatforms.length)*0.1+1.0
